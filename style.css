@@ -1,62 +1,73 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+* {
     margin: 0;
-    background-color: #f1f1f1;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #f4f4f4;
+    font-family: sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-top: 2rem;
   }
   
   .chat-container {
-    -ms-flex-direction: column;
-    flex-direction: column;
-}
-
-    .chat-messages {
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-}
-
-
-
-  
-  .chat-header {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 15px;
-    text-align: center;
-    font-size: 1.5em;
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #11973e;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
   
+  .chat-messages {
+    height: 300px;
+    overflow-y: scroll;
+    padding: 1rem;
+  }
   
+  .message {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+  }
+  
+  .user {
+    background-color: #ccc;
+  }
+  
+  .server {
+    background-color: #f4f4f4;
+    text-align: right;
+  }
   
   .chat-form {
     display: flex;
-    background-color: #f1f1f1;
-    padding: 10px;
-    align-items: center;
+    margin-top: 1rem;
   }
   
-  .chat-form input {
+  #chat-input {
     flex-grow: 1;
+    padding: 0.5rem;
     border: none;
-    padding: 10px;
-    border-radius: 5px;
-    margin-right: 10px;
+    border-radius: 0.5rem;
+    font-size: 1rem;
   }
   
-  .chat-form button {
-    background-color: #4caf50;
+  button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #007bff;
     color: #fff;
-    border: none;
-    padding: 10px 15px;
-    font-size: 1em;
-    border-radius: 5px;
+    font-size: 1rem;
     cursor: pointer;
+    transition: background-color 0.3s;
   }
   
-  .chat-form button:hover {
-    background-color: #45a049;
-  }
-  
+  button:hover {
+    background-color: #0069d9;
+  }  
