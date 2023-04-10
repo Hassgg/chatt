@@ -1,37 +1,25 @@
-function sendMessageToServer(message) {
-    // استبدل هذا الرابط برابط خادم النهاية الخلفية الخاص بك
-    const serverURL = "https://hassgg.github.io/chatt/api/chat";
+const express = require("express");
+const app = express();
 
-    const data = { message: message };
-  
-    fetch(serverURL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        // أضف رسالة المستخدم إلى مربع الدردشة
-        appendMessage("user", message);
-  
-        // أضف رد الخادم (الرد من OpenAI) إلى مربع الدردشة
-        appendMessage("server", data.message);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }
-  
-  // دالة لإلحاق رسالة إلى مربع الدردشة
-  function appendMessage(sender, message) {
-    const messageElement = document.createElement("div");
-    messageElement.classList.add("message", sender);
-    messageElement.textContent = message;
-    chatMessages.appendChild(messageElement);
-  
-    // اضبط التمرير تلقائيًا لأسفل مربع الدردشة
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-  
+// define path to the HTML file
+const path = require("path");
+const htmlPath = path.join(__dirname, "index.html");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// serve the HTML file at the root URL
+app.get("/", (req, res) => {
+  res.sendFile(htmlPath);
+});
+
+// handle chat API requests
+app.post("/api/chat", async (req, res) => {
+  // code for handling chat requests goes here
+});
+
+// start the server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
