@@ -1,9 +1,17 @@
-const express = require("express");
-const app = express();
-const openai = require("openai");
-const axios = require("axios");
+import express from "express";
+import { Configuration, OpenAIApi } from "openai";
+import bodyParser from "body-parser";
 
-openai.apiKey = "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";
+const app = express();
+const configuration = new Configuration({
+  apiKey: "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",
+});
+const openai = new OpenAIApi(configuration);
+
+// تهيئة تطبيق Express
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // إعداد وظيفة الدردشة
 async function chat(prompt) {
