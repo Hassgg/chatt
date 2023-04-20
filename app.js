@@ -1,9 +1,10 @@
-const express = require("express");
-const app = express();
-const openai = require("openai");
-const axios = require("axios");
+import express from "express";
+import openai from "openai";
+import axios from "axios";
 
 openai.apiKey = "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";
+
+const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
